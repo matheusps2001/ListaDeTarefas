@@ -1,0 +1,147 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+body{
+  background-color: rgb(13, 11, 26);
+  height: 100vh;
+}
+
+.envolver{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.list{
+  width: 100%;
+  max-width: 600px;
+}
+
+.header{
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 15px;
+  background-color: #de3f53;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  
+}
+
+.wrapper-list ul.list{
+  list-style: none;
+}
+
+.wrapper-list ul.list li{
+  position: relative;
+  background-color: #262e4c;
+  border-bottom: 1px solid #1c2340;
+  color: #b1b2c9;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  transition: background-color 300ms ease;
+}
+
+.wrapper-list ul.list li.removed{
+  animation: collapseItem 600ms ease;
+ }
+ 
+
+ .wrapper-list ul.list li.hidden{
+  display: none;
+}
+
+
+.wrapper-list ul.list li:hover{
+  background-color: #323b5c;
+}
+
+.wrapper-list ul.list li:hover button.remove{
+  display: block;
+  opacity: 1;
+}
+
+.wrapper-list ul.list .check{
+  background-color: #404a6e;
+  border-radius: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
+.wrapper-list ul.list .check:hover,
+.wrapper-list ul.list .done .check {
+  background-color: #1c223a;
+} 
+
+.wrapper-list .list .done .check:after{
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: block;
+  content: ' ';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(2, 142, 2);
+}
+
+.wrapper-list .list .done .task{
+  text-decoration: line-through;
+}
+
+
+
+.wrapper-list button.remove{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.wrapper-list button.remove:after{
+  content: 'X';
+  color: white;
+  display: block;
+}
+
+.list footer{
+  background-color: #171d37;
+}
+
+.list footer input{
+  background-color: #171d37;
+  border: none;
+  outline: none;
+  width: 90%;
+  padding: 20px;
+  font-size: 1.2em;
+  color: white;
+}
+
+@keyframes collapseItem{
+  0% {
+    width: 100%;
+  }
+  100%{
+    width: 0%;
+  }
+}
